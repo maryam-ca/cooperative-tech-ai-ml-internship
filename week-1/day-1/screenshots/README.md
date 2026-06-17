@@ -1,4 +1,4 @@
-# 🚀 Week 1 - Day 1: Environment Setup & Onboarding
+#  Week 1 - Day 1: Environment Setup & Onboarding
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
 ![VS Code](https://img.shields.io/badge/VS%20Code-Editor-007ACC?style=for-the-badge&logo=visualstudiocode)
@@ -8,13 +8,13 @@
 
 ---
 
-# 📌 Overview
+#  Overview
 
 Day 1 focused on setting up a professional development environment for the AI/ML Internship Program. All required tools were installed and configured successfully.
 
 ---
 
-# 🎯 Objectives
+#  Objectives
 
 - Install Python
 - Install VS Code
@@ -26,7 +26,7 @@ Day 1 focused on setting up a professional development environment for the AI/ML
 
 ---
 
-# 💻 Installed Tools
+#  Installed Tools
 
 | Tool | Version |
 |--------|---------|
@@ -38,7 +38,7 @@ Day 1 focused on setting up a professional development environment for the AI/ML
 
 ---
 
-# ⚙️ Conda Environment
+#  Conda Environment
 
 Environment Name:
 
@@ -60,7 +60,7 @@ conda activate aiml_internship
 
 ---
 
-# 🔧 Git Configuration
+#  Git Configuration
 
 ```bash
 git config --global user.name "Maryam Fatima"
@@ -69,7 +69,7 @@ git config --global user.email "your-email@example.com"
 
 ---
 
-# 📂 Repository Structure
+#  Repository Structure
 
 ```text
 ctpl-aiml-internship/
@@ -87,7 +87,7 @@ ctpl-aiml-internship/
 
 ---
 
-# 📸 Screenshots Included
+#  Screenshots Included
 
 - VS Code Running
 - Python Version
@@ -97,7 +97,7 @@ ctpl-aiml-internship/
 
 ---
 
-# ✅ Deliverables
+#  Deliverables
 
 - Python Installed
 - VS Code Installed
@@ -108,7 +108,7 @@ ctpl-aiml-internship/
 
 ---
 
-# 👩‍💻 Author
+#  Author
 
 **Maryam Fatima**  
 BS Software Engineering  
