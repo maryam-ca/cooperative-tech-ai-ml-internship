@@ -1,4 +1,4 @@
-# 🚀 Week 1 - Day 2: Python Revision, OOP, Error Handling & File I/O
+#  Week 1 - Day 2: Python Revision, OOP, Error Handling & File I/O
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
 ![OOP](https://img.shields.io/badge/OOP-Practice-success?style=for-the-badge)
@@ -10,7 +10,7 @@
 ![AI/ML Internship](https://img.shields.io/badge/AI%2FML-Internship-purple?style=for-the-badge)
 
 
-## 📌 Overview
+##  Overview
 
 This repository contains my **Week 1 - Day 2 internship tasks** completed as part of the **AI/ML Internship Program**.
 
@@ -27,7 +27,7 @@ The main objective of this day was to strengthen Python programming fundamentals
 
 ---
 
-## 🎯 Learning Objectives
+##  Learning Objectives
 
 After completing these tasks, I am able to:
 
@@ -42,7 +42,7 @@ After completing these tasks, I am able to:
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```text
 week-1/
@@ -78,7 +78,7 @@ week-1/
 
 ---
 
-# 🏗️ Object-Oriented Programming (OOP)
+#  Object-Oriented Programming (OOP)
 
 ## 1. Student Performance Management System
 
@@ -166,7 +166,7 @@ week-1/
 
 ---
 
-# ⚠️ Error Handling
+#  Error Handling
 
 ## 1. File Error Handler
 
@@ -353,7 +353,7 @@ Contains:
 
 ---
 
-# 💻 Technologies Used
+#  Technologies Used
 
 ## Programming Language
 
@@ -373,7 +373,7 @@ Contains:
 
 ---
 
-# 📚 Key Concepts Covered
+#  Key Concepts Covered
 
 ## Python Fundamentals
 
@@ -405,7 +405,7 @@ Contains:
 
 ---
 
-# ▶️ How to Run
+#  How to Run
 
 ## Run OOP Programs
 
@@ -443,7 +443,7 @@ python file-io/read_json.py
 
 ---
 
-# ✅ Deliverables Completed
+#  Deliverables Completed
 
 - OOP Practice Programs
 - Error Handling Programs
@@ -455,13 +455,13 @@ python file-io/read_json.py
 
 ---
 
-# 🌟 Learning Outcome
+#  Learning Outcome
 
 This task helped strengthen my understanding of Python programming, Object-Oriented Programming, Exception Handling, and File Management. These concepts form the foundation for upcoming AI/ML topics such as NumPy, Pandas, Data Analysis, and Machine Learning workflows.
 
 ---
 
-# 👩‍💻 Author
+#  Author
 
 ## Maryam Fatima
 
