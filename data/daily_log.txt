@@ -1,0 +1,23 @@
+====================
+Date: 2026-06-17
+Task: Created OOP Practice Programs
+Status: Completed
+Remarks: Student, Employee, Dataset and Wallet systems developed successfully.
+
+====================
+Date: 2026-06-17
+Task: Completed Error Handling Programs
+Status: Completed
+Remarks: Implemented FileNotFoundError, ValueError, ZeroDivisionError and KeyError handling.
+
+====================
+Date: 2026-06-17
+Task: Completed File I/O Practice
+Status: Completed
+Remarks: Successfully worked with Text, CSV and JSON files.
+
+====================
+Date: 2026-06-17
+Task: GitHub Repository Update
+Status: Completed
+Remarks: Uploaded Day 2 tasks and pushed code to GitHub.

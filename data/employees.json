@@ -1,0 +1,39 @@
+{
+    "employees": [
+        {
+            "id": 1,
+            "name": "Maryam Fatima",
+            "designation": "AI/ML Intern",
+            "salary": 80000,
+            "department": "Artificial Intelligence"
+        },
+        {
+            "id": 2,
+            "name": "Ali Raza",
+            "designation": "Data Analyst",
+            "salary": 65000,
+            "department": "Data Science"
+        },
+        {
+            "id": 3,
+            "name": "Sara Khan",
+            "designation": "ML Engineer",
+            "salary": 95000,
+            "department": "Machine Learning"
+        },
+        {
+            "id": 4,
+            "name": "Ahmed Hassan",
+            "designation": "Python Developer",
+            "salary": 70000,
+            "department": "Software Development"
+        },
+        {
+            "id": 5,
+            "name": "Fatima Noor",
+            "designation": "Business Analyst",
+            "salary": 60000,
+            "department": "Business Intelligence"
+        }
+    ]
+}
