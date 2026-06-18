@@ -1,0 +1,9 @@
+DATA CLEANING REPORT
+===================
+
+1. Missing values handled.
+2. Age column filled using mean.
+3. Embarked column filled with Unknown.
+4. Cabin column filled with Not Available.
+5. Duplicate rows removed.
+6. Data types verified.
