@@ -8,7 +8,7 @@
 
 ---
 
-# 📌 Introduction
+#  Introduction
 
 Feature Engineering is one of the most important steps in the Machine Learning pipeline. Raw datasets often contain categorical values, unscaled numerical features, and information that is not directly useful for predictive models.
 
@@ -23,7 +23,7 @@ In this task, the Marketing Campaign dataset was used to perform:
 
 ---
 
-# 🎯 Objectives
+#  Objectives
 
 The main objectives of this task were:
 
@@ -36,7 +36,7 @@ The main objectives of this task were:
 
 ---
 
-# 📂 Dataset
+#  Dataset
 
 ### Dataset Used
 
@@ -64,7 +64,7 @@ The dataset is commonly used for customer behavior analysis and predictive model
 
 ---
 
-# 📊 Step 1: Data Loading
+#  Step 1: Data Loading
 
 The dataset was loaded using Pandas.
 
@@ -90,7 +90,7 @@ This helps understand the structure of the dataset before starting feature engin
 
 ---
 
-# 🔍 Step 2: Identify Categorical Columns
+#  Step 2: Identify Categorical Columns
 
 Machine Learning models cannot directly process text values.
 
@@ -111,7 +111,7 @@ Marital_Status
 
 ---
 
-# 🔄 Step 3: Categorical Encoding
+#  Step 3: Categorical Encoding
 
 ## What is Encoding?
 
@@ -161,7 +161,7 @@ This avoids the Dummy Variable Trap and reduces multicollinearity.
 
 ---
 
-# 📈 Before and After Encoding
+#  Before and After Encoding
 
 ### Original Dataset Shape
 
@@ -179,7 +179,7 @@ The increase in columns confirms successful encoding.
 
 ---
 
-# 🏗️ Step 4: Feature Creation
+#  Step 4: Feature Creation
 
 Creating new features helps models learn better relationships from data.
 
@@ -275,7 +275,7 @@ Provides a more realistic measure of purchasing capacity.
 
 ---
 
-# 📊 Feature Visualization
+#  Feature Visualization
 
 Visualizing engineered features helps understand their distribution.
 
@@ -323,7 +323,7 @@ The customer base mainly consists of middle-aged individuals.
 
 ---
 
-# ⚙️ Step 5: Data Scaling
+#  Step 5: Data Scaling
 
 ## Why Scaling?
 
@@ -407,7 +407,7 @@ This confirms scaling was applied correctly.
 
 ---
 
-# 📋 Step 6: Final Feature Summary
+#  Step 6: Final Feature Summary
 
 A feature summary table was created.
 
@@ -445,7 +445,7 @@ feature_summary.to_csv(
 
 ---
 
-# 📁 Generated Outputs
+#  Generated Outputs
 
 The following outputs were generated during this task:
 
@@ -460,7 +460,7 @@ outputs/
 
 ---
 
-# 🛠️ Technologies Used
+#  Technologies Used
 
 - Python
 - Pandas
@@ -474,7 +474,7 @@ outputs/
 
 ---
 
-# 📚 Key Learnings
+#  Key Learnings
 
 During this task, the following concepts were learned:
 
@@ -489,7 +489,7 @@ During this task, the following concepts were learned:
 
 ---
 
-# ✅ Conclusion
+#  Conclusion
 
 This Feature Engineering task successfully transformed the raw Marketing Campaign dataset into a machine-learning-ready format.
 

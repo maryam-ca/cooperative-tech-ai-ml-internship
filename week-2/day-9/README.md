@@ -1,4 +1,4 @@
-# 📊 Week 2 - Day 9
+#  Week 2 - Day 9
 # Correlation Analysis & Hypothesis Testing with SciPy & Statsmodels
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
@@ -9,7 +9,7 @@
 
 ---
 
-# 📖 Project Overview
+#  Project Overview
 
 This project was completed as part of the **Cooperative Tech Private Limited AI/ML Internship Program - Week 2 Day 9**.
 
@@ -30,7 +30,7 @@ The findings from this analysis will be used during future Machine Learning mode
 
 ---
 
-# 🎯 Objectives
+#  Objectives
 
 The main objectives of this project are:
 
@@ -52,7 +52,7 @@ The main objectives of this project are:
 
 ---
 
-# 📂 Dataset Information
+#  Dataset Information
 
 ## Dataset Name
 
@@ -80,7 +80,7 @@ The Response column is used as the target variable throughout this analysis.
 
 ---
 
-# 🛠 Technologies Used
+#  Technologies Used
 
 The following libraries and tools were used:
 
@@ -97,7 +97,7 @@ The following libraries and tools were used:
 
 ---
 
-# 📊 Task 1: Correlation Analysis
+#  Task 1: Correlation Analysis
 
 ## What is Correlation?
 
@@ -206,7 +206,7 @@ T-Test results help determine whether customer behavior differs significantly be
 
 ---
 
-# 📊 Task 3: Chi-Square Test
+#  Task 3: Chi-Square Test
 
 ## What is Chi-Square Test?
 
@@ -244,7 +244,7 @@ Chi-Square testing helps identify whether customer demographic characteristics i
 
 ---
 
-# 🏆 Task 4: Feature Importance Ranking
+#  Task 4: Feature Importance Ranking
 
 ## Objective
 
@@ -273,7 +273,7 @@ Feature ranking helps:
 
 ---
 
-# 📁 Generated Outputs
+#  Generated Outputs
 
 The following visualizations and reports were generated during this analysis:
 
@@ -289,7 +289,7 @@ outputs/
 
 ---
 
-# 📷 Visualizations
+#  Visualizations
 
 ## Correlation Heatmap
 
@@ -335,7 +335,7 @@ Visual ranking of the most predictive features.
 
 ---
 
-# 📚 Statistical Concepts Learned
+#  Statistical Concepts Learned
 
 Through this project, the following statistical concepts were explored:
 
@@ -369,7 +369,7 @@ Making data-driven conclusions from test results.
 
 ---
 
-# 🚀 Project Workflow
+#  Project Workflow
 
 ```text
 Load Dataset
@@ -398,7 +398,7 @@ Statistical Conclusions
 
 ---
 
-# 🎓 Learning Outcomes
+#  Learning Outcomes
 
 After completing this project, I learned how to:
 
@@ -414,7 +414,7 @@ After completing this project, I learned how to:
 
 ---
 
-# 🔮 Future Scope
+#  Future Scope
 
 The findings from this analysis will be used in upcoming Machine Learning tasks, including:
 
@@ -426,7 +426,7 @@ The findings from this analysis will be used in upcoming Machine Learning tasks,
 
 ---
 
-# ✅ Conclusion
+#  Conclusion
 
 This project successfully performed a complete statistical analysis of the Marketing Campaign Dataset.
 
@@ -438,7 +438,7 @@ These findings create a strong foundation for future Machine Learning model deve
 
 ---
 
-# 👩‍💻 Author
+#  Author
 
 **Maryam Fatima**
 
