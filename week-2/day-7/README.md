@@ -11,7 +11,7 @@
 
 ---
 
-# 📖 Overview
+#  Overview
 
 Day 7 focused on performing a **complete Exploratory Data Analysis (EDA)** on the **Customer Personality Analysis Dataset**.
 
@@ -28,7 +28,7 @@ EDA is one of the most important steps in the Data Science lifecycle because it 
 
 ---
 
-# 🎯 Objectives
+#  Objectives
 
 The main objectives of this task were:
 
@@ -42,7 +42,7 @@ The main objectives of this task were:
 
 ---
 
-# 📂 Dataset Information
+#  Dataset Information
 
 ## Dataset Name
 
@@ -56,7 +56,7 @@ The objective is to understand customer behavior and identify important patterns
 
 ---
 
-# 🛠 Technologies & Libraries Used
+#  Technologies & Libraries Used
 
 ## Python Libraries
 
@@ -109,7 +109,7 @@ Used for:
 
 ---
 
-# 📁 Project Structure
+#  Project Structure
 
 ```text
 week-2/
@@ -129,7 +129,7 @@ week-2/
 
 ---
 
-# 🔍 Task 1: Missing Value Analysis
+#  Task 1: Missing Value Analysis
 
 ## Purpose
 
@@ -155,7 +155,7 @@ This task was performed to:
 
 ---
 
-# 📊 Task 2: Missing Value Visualization
+#  Task 2: Missing Value Visualization
 
 ## Technique Used
 
@@ -177,7 +177,7 @@ missing_values_matrix.png
 
 ---
 
-# 📈 Task 3: Outlier Detection
+#  Task 3: Outlier Detection
 
 ## Purpose
 
@@ -207,7 +207,7 @@ Values outside these bounds were classified as outliers.
 
 ---
 
-# 📦 Boxplot Analysis
+#  Boxplot Analysis
 
 ## Visualizations Created
 
@@ -238,7 +238,7 @@ Therefore, removing them immediately would not be appropriate.
 
 ---
 
-# 📉 Task 4: Distribution Analysis
+#  Task 4: Distribution Analysis
 
 ## Purpose
 
@@ -271,7 +271,7 @@ age_distribution.png
 
 ---
 
-# 📏 Task 5: Skewness Analysis
+#  Task 5: Skewness Analysis
 
 ## Purpose
 
@@ -293,7 +293,7 @@ This indicates that a small number of customers have significantly higher income
 
 ---
 
-# 🔄 Task 6: Log Transformation
+#  Task 6: Log Transformation
 
 ## Purpose
 
@@ -324,7 +324,7 @@ income_log_transform.png
 
 ---
 
-# 🎯 Task 7: Target Variable Analysis
+#  Task 7: Target Variable Analysis
 
 ## Target Variable
 
@@ -357,7 +357,7 @@ This imbalance should be considered during machine learning model training.
 
 ---
 
-# 📌 Key Insights
+#  Key Insights
 
 ### Insight 1
 
@@ -385,7 +385,7 @@ High-spending customers contribute to extreme values in multiple features.
 
 ---
 
-# 🏆 Learning Outcomes
+#  Learning Outcomes
 
 Through this task, the following concepts were learned:
 
@@ -402,7 +402,7 @@ Through this task, the following concepts were learned:
 
 ---
 
-# 🚀 Future Work
+#  Future Work
 
 The findings from this EDA will be used in upcoming tasks:
 
@@ -414,7 +414,7 @@ The findings from this EDA will be used in upcoming tasks:
 
 ---
 
-# ✅ Conclusion
+#  Conclusion
 
 A complete Exploratory Data Analysis (EDA) was successfully performed on the Customer Personality Analysis Dataset.
 
