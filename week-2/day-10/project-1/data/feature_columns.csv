@@ -1,0 +1,51 @@
+Feature,Type
+Age,numeric
+DailyRate,numeric
+DistanceFromHome,numeric
+Education,numeric
+EmployeeNumber,numeric
+HourlyRate,numeric
+JobInvolvement,numeric
+JobLevel,numeric
+JobRole,numeric
+MonthlyIncome,numeric
+MonthlyRate,numeric
+NumCompaniesWorked,numeric
+PercentSalaryHike,numeric
+PerformanceRating,numeric
+StockOptionLevel,numeric
+TotalWorkingYears,numeric
+TrainingTimesLastYear,numeric
+YearsAtCompany,numeric
+YearsInCurrentRole,numeric
+YearsSinceLastPromotion,numeric
+YearsWithCurrManager,numeric
+ExperienceRatio,numeric
+IsHighEducation,numeric
+IsSenior,numeric
+HighJobInvolvement,numeric
+EnvironmentSatisfaction_encoded,encoded
+JobSatisfaction_encoded,encoded
+RelationshipSatisfaction_encoded,encoded
+WorkLifeBalance_encoded,encoded
+BusinessTravel_Travel_Frequently,numeric
+BusinessTravel_Travel_Rarely,numeric
+Department_Research & Development,numeric
+Department_Sales,numeric
+EducationField_Life Sciences,numeric
+EducationField_Marketing,numeric
+EducationField_Medical,numeric
+EducationField_Other,numeric
+EducationField_Technical Degree,numeric
+Gender_Male,numeric
+MaritalStatus_Married,numeric
+MaritalStatus_Single,numeric
+OverTime_Yes,numeric
+TenureCategory_1-5 years,numeric
+TenureCategory_5-10 years,numeric
+TenureCategory_10-20 years,numeric
+TenureCategory_20+ years,numeric
+AgeGroup_26-35,numeric
+AgeGroup_36-45,numeric
+AgeGroup_46-55,numeric
+AgeGroup_55+,numeric
