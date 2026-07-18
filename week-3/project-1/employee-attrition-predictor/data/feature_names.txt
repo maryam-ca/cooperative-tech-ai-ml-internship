@@ -1,0 +1,63 @@
+Age
+DailyRate
+DistanceFromHome
+Education
+EmployeeCount
+EmployeeNumber
+EnvironmentSatisfaction
+Gender
+HourlyRate
+JobInvolvement
+JobLevel
+JobSatisfaction
+MonthlyIncome
+MonthlyRate
+NumCompaniesWorked
+Over18
+OverTime
+PercentSalaryHike
+PerformanceRating
+RelationshipSatisfaction
+StandardHours
+StockOptionLevel
+TotalWorkingYears
+TrainingTimesLastYear
+WorkLifeBalance
+YearsAtCompany
+YearsInCurrentRole
+YearsSinceLastPromotion
+YearsWithCurrManager
+YearsAtCompanyRatio
+AvgSatisfaction
+HighIncome
+PromotionFrequency
+OvertimeIncomeRatio
+CompanyLoyalty
+IncomePerYear
+WLB_Satisfaction
+BusinessTravel_Travel_Frequently
+BusinessTravel_Travel_Rarely
+Department_Research & Development
+Department_Sales
+EducationField_Life Sciences
+EducationField_Marketing
+EducationField_Medical
+EducationField_Other
+EducationField_Technical Degree
+JobRole_Human Resources
+JobRole_Laboratory Technician
+JobRole_Manager
+JobRole_Manufacturing Director
+JobRole_Research Director
+JobRole_Research Scientist
+JobRole_Sales Executive
+JobRole_Sales Representative
+MaritalStatus_Married
+MaritalStatus_Single
+TenureGroup_Mid
+TenureGroup_Senior
+TenureGroup_Veteran
+AgeGroup_Early Career
+AgeGroup_Mid Career
+AgeGroup_Late Career
+AgeGroup_Senior
