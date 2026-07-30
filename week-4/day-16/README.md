@@ -50,7 +50,7 @@ day-16/
 
 The Breast Cancer Wisconsin Dataset was used to practice Ensemble Machine Learning algorithms for binary classification.
 
-The dataset contains diagnostic measurements of breast tumors.
+The dataset contains diagnostic measurements of breast tumors
 
 ### Features Include
 
