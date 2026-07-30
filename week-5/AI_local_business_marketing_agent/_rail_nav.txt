@@ -1,0 +1,53 @@
+def render_sidebar():
+    current = st.session_state.nav
+    items_html = "".join(
+        f'<button class="nav-btn {"active" if opt["key"] == current else ""}" '
+        f'onclick="window.parent.postMessage({{type:\'nav\', key:{json.dumps(opt["key"])}}}, \'*\')">'
+        f'<span class="nav-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{opt["icon"]}"/></svg></span>'
+        f'<span class="nav-label">{opt["label"]}</span></button>'
+        for opt in NAV_OPTIONS
+    )
+
+    profile = st.session_state.get('business_profile', {})
+    name = profile.get('name', 'Business')
+
+    st.markdown(f"""
+    <div class="rail">
+        <div class="rail-logo">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        </div>
+        <div class="rail-sep"></div>
+        {items_html}
+        <div class="nav-spacer"></div>
+        <button class="nav-foot" title="Logout: {name}" onclick="window.parent.postMessage({{type:\'nav\', key:\'logout\'}}, \'*\')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        </button>
+    </div>
+    <script>
+    window.addEventListener('message', function(e){{
+        if(e.data && e.data.type === 'nav'){{
+            const k = e.data.key;
+            const btns = Array.from(window.parent.document.querySelectorAll('.nav-bridge button'));
+            const target = btns.find(b => b.dataset.navkey === k);
+            if(target) target.click();
+        }}
+    }});
+    </script>
+    """, unsafe_allow_html=True)
+
+    # Hidden bridge buttons that Streamlit can actually trigger reruns on
+    st.markdown('<div class="nav-bridge" style="display:none;">', unsafe_allow_html=True)
+    for opt in NAV_OPTIONS:
+        if st.button(opt["label"], key=f"nav_bridge_{opt['key']}",
+                     help=opt["label"], use_container_width=True):
+            st.session_state.nav = opt["key"]
+            st.session_state["nav_radio"] = opt["key"]
+            st.rerun()
+
+    if st.button("Logout", key="nav_logout_bridge", use_container_width=True):
+        st.session_state.authenticated = False
+        st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    return current
+

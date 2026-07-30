@@ -1,0 +1,10 @@
+Algorithm,Problem Type,Advantages,Disadvantages
+Linear Regression,Regression,Simple & Fast,Overfits Easily
+Ridge Regression,Regression,Reduces Overfitting,Keeps All Features
+Lasso Regression,Regression,Feature Selection,Can Remove Useful Features
+ElasticNet,Regression,Balanced Regularization,Requires Parameter Tuning
+Decision Tree,Classification/Regression,Easy to Interpret,Can Overfit
+Random Forest,Classification/Regression,High Accuracy,Slower than Decision Tree
+Gradient Boosting,Classification/Regression,Learns from Errors,Sensitive to Parameters
+XGBoost,Classification/Regression,Industry Standard,Higher Training Time
+Support Vector Machine,Classification,Works Well in High Dimensions,Requires Feature Scaling

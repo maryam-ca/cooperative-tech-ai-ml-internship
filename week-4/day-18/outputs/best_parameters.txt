@@ -1,0 +1,9 @@
+RIDGE REGRESSION
+-------------------------
+Best Parameters : {'alpha': 10}
+Best Score      : 0.6476
+
+LASSO REGRESSION
+-------------------------
+Best Parameters : {'alpha': 10}
+Best Score      : 0.6475

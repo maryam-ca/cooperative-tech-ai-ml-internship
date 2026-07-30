@@ -1,0 +1,10 @@
+Algorithm,Best Use Case
+Linear Regression,Simple Regression
+Ridge,Correlated Features
+Lasso,Feature Selection
+ElasticNet,Many Correlated Features
+Decision Tree,Easy Interpretation
+Random Forest,High Accuracy
+Gradient Boosting,Complex Problems
+XGBoost,Industry Projects
+Support Vector Machine,High Dimensional Data

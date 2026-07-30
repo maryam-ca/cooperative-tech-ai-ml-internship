@@ -1,0 +1,12 @@
+============================================================
+DAY 19 - EDA SUMMARY
+============================================================
+
+Dataset Shape: 41188 rows × 21 columns
+
+Target Distribution:
+  no:  36,548 ( 88.7%)
+  yes:  4,640 ( 11.3%)
+
+Numerical Features: 10
+Categorical Features: 11
