@@ -1,0 +1,49 @@
+
+# Transfer Learning Analysis
+
+## Key Findings
+
+### 1. Performance Comparison
+- **CNN from Scratch**: ~78% test accuracy (Day 28)
+- **MobileNetV2 Feature Extraction**: Better accuracy with less training time
+- **MobileNetV2 Fine-Tuning**: Best performance among tested models
+- **ResNet50**: Good performance but computationally heavier
+
+### 2. Why Transfer Learning Works Better
+
+#### A. Better Starting Point
+- Pre-trained on ImageNet (14M images, 1000 classes)
+- Has learned universal visual features
+
+#### B. Data Efficiency
+- Achieves ~80%+ accuracy with 50,000 training images
+- CNN from scratch struggles with the same data
+
+#### C. Training Speed
+- Feature Extraction: Fast (only training the head)
+- Fine-Tuning: Faster than training from scratch
+
+### 3. Feature Extraction vs Fine-Tuning
+
+| Aspect | Feature Extraction | Fine-Tuning |
+|--------|-------------------|-------------|
+| Speed | Very Fast | Moderate |
+| Data Required | Small | More |
+| Performance | Good | Best |
+| Risk | Low | Moderate |
+
+### 4. MobileNetV2 vs ResNet50
+
+| Aspect | MobileNetV2 | ResNet50 |
+|--------|------------|----------|
+| Parameters | ~3.5M | ~25.6M |
+| Speed | Fast | Slower |
+| Use Case | Mobile/Edge | Server/Cloud |
+
+### 5. Key Takeaways
+
+1. Don't train from scratch unless you have millions of images
+2. Transfer Learning is the industry standard for computer vision
+3. Start with feature extraction, then try fine-tuning
+4. Choose architecture based on deployment constraints
+5. Always use pre-trained weights from large datasets
