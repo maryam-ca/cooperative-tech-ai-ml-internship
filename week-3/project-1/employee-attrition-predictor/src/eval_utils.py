@@ -64,7 +64,14 @@ def ensure_deployed():
         return model, pre
     except Exception:
         with st.spinner("Regenerating deployed model artifacts…"):
-            retrain_and_save(load_config())
+            try:
+                retrain_and_save(load_config())
+            except Exception as exc:
+                st.error(
+                    f"Could not train model: {exc}. "
+                    "Ensure the dataset is present in the data/ folder."
+                )
+                st.stop()
         st.session_state["_deployed_ok"] = True
         model, pre = load_pipeline(artifact_mtime())
         return model, pre
@@ -180,7 +187,9 @@ def retrain_and_save(cfg: dict) -> dict:
     """Retrain with the configured algorithm, save artifacts + metadata."""
     from src.preprocessor import DataPreprocessor
     from src.model_trainer import ModelTrainer
+    from src.ui_components import ensure_data_file
 
+    ensure_data_file()
     df = pd.read_csv(DATA_FILE)
     pre = DataPreprocessor()
     proc = pre.preprocess(df, training=True)

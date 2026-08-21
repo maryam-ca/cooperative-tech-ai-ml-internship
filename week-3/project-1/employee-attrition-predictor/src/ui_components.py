@@ -406,6 +406,18 @@ def load_cached_data(_mtime: float) -> pd.DataFrame:
 def load_pipeline(_mtime: float):
     from src.preprocessor import DataPreprocessor
 
+    required = [
+        MODELS_DIR / "best_model.pkl",
+        MODELS_DIR / "scaler.pkl",
+        MODELS_DIR / "label_encoders.pkl",
+        MODELS_DIR / "feature_columns.pkl",
+    ]
+    missing = [p for p in required if not p.exists()]
+    if missing:
+        raise FileNotFoundError(
+            f"Missing model artifacts: {[str(p.name) for p in missing]}. "
+            "Retraining will be triggered automatically."
+        )
     model = joblib.load(MODELS_DIR / "best_model.pkl")
     pre = DataPreprocessor()
     pre.scaler = joblib.load(MODELS_DIR / "scaler.pkl")
