@@ -372,8 +372,33 @@ def lumina_table(headers: list, rows: list, aligns: list = None) -> str:
 
 
 # ── Cached data / pipeline ─────────────────────────────────────────────────
+_DATA_URLS = [
+    "https://raw.githubusercontent.com/IBM/employee-attrition-predictor/refs/heads/main/data/WA_Fn-UseC_-HR-Employee-Attrition.csv",
+    "https://raw.githubusercontent.com/ANONIMOWA11/Employee-Attrition-Prediction/main/WA_Fn-UseC_-HR-Employee-Attrition.csv",
+]
+
+
+def ensure_data_file() -> None:
+    """Download the IBM HR dataset if it is missing (e.g. on Streamlit Cloud)."""
+    if DATA_FILE.exists():
+        return
+    DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
+    import urllib.request
+    for url in _DATA_URLS:
+        try:
+            urllib.request.urlretrieve(url, DATA_FILE)
+            if DATA_FILE.stat().st_size > 1000:
+                return
+        except Exception:
+            DATA_FILE.unlink(missing_ok=True)
+    raise FileNotFoundError(
+        f"Could not download dataset. Place WA_Fn-UseC_-HR-Employee-Attrition.csv in {DATA_FILE.parent}"
+    )
+
+
 @st.cache_data(show_spinner="Loading dataset\u2026")
 def load_cached_data(_mtime: float) -> pd.DataFrame:
+    ensure_data_file()
     return pd.read_csv(DATA_FILE)
 
 
