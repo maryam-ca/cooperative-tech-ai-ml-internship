@@ -157,14 +157,15 @@ def build_sidebar():
 
 def render_topbar(title: str, subtitle: str = ""):
     sub_html = (
-        f'<span style="opacity:0.4;margin-left:12px;font-size:0.85em;">{subtitle}</span>'
+        f'<span style="opacity:0.5;margin-left:10px;font-size:0.85em;">{subtitle}</span>'
         if subtitle else ""
     )
     st.markdown(
         f'<div class="lumina-topbar">'
         f'<div class="tb-title">{icon("auto_awesome", size=22)}&nbsp;Lumina Insights</div>'
-        f'<div class="tb-search">{icon("search", size=18)}'
-        f'<span style="opacity:0.65;">{title}</span>{sub_html}</div>'
+        f'<div style="font-family:var(--lumina-font-display);font-size:var(--lumina-label-md);'
+        f'font-weight:500;color:var(--lumina-on-surface-variant);letter-spacing:0.03em;">'
+        f'{title}{sub_html}</div>'
         f'<div class="tb-icons">'
         f'<div class="tb-icon-btn">{icon("notifications")}<span class="dot"></span></div>'
         f'<div class="tb-icon-btn tb-search-hide">{icon("help")}</div>'

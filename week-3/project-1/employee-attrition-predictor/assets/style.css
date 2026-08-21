@@ -93,29 +93,24 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ═══ Base canvas + ambient blobs (Level 1 elevation) ═══ */
+/* ═══ Base canvas — flat cool grey (no ambient blobs) ═══ */
 .stApp {
   background-color: var(--lumina-background);
-  background-image:
-    radial-gradient(circle at 8% 0%, rgba(224, 224, 255, 0.85), transparent 38%),
-    radial-gradient(circle at 92% 12%, rgba(141, 245, 228, 0.55), transparent 32%),
-    radial-gradient(circle at 50% 105%, rgba(189, 194, 255, 0.5), transparent 42%),
-    radial-gradient(circle at 95% 85%, rgba(245, 227, 255, 0.4), transparent 34%);
-  background-attachment: fixed;
 }
 
 .main .block-container {
   padding: 1.5rem 2rem 4rem;
-  max-width: 1440px;
+  max-width: 1280px;
 }
 
-/* ═══ Sidebar (fixed 280px, Analytical Navy) ═══ */
+/* ═══ Sidebar (fixed 280px, Analytical Navy — flat) ═══ */
 [data-testid="stSidebar"] {
-  background: linear-gradient(180deg, var(--lumina-primary) 0%, var(--lumina-primary-container) 100%) !important;
+  background: var(--lumina-primary) !important;
   width: 280px !important;
   min-width: 280px !important;
   max-width: 280px !important;
   border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15) !important;
 }
 
 [data-testid="stSidebar"] > div {
@@ -336,10 +331,10 @@ html, body {
   top: 0;
   z-index: 60;
   width: 100%;
-  background: rgba(251, 248, 255, 0.72);
+  background: rgba(251, 248, 255, 0.7);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: var(--lumina-shadow-card);
   display: flex;
   align-items: center;
@@ -498,38 +493,21 @@ svg.lumina-ic {
 
 /* ═══ Glass cards (Level 2 elevation) ═══ */
 .glass-card, .lumina-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.46));
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--lumina-radius-lg);
-  box-shadow: 0 10px 34px rgba(26, 35, 126, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--lumina-radius-md);
+  box-shadow: var(--lumina-shadow-card);
   padding: var(--lumina-stack-md);
   position: relative;
   overflow: visible;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 .glass-card:hover, .lumina-card:hover {
-  border-color: var(--glass-border-hover);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.56));
-  -webkit-backdrop-filter: var(--glass-blur-hover);
-  backdrop-filter: var(--glass-blur-hover);
-  box-shadow: var(--lumina-shadow-lg);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
 }
-.glass-card .card-ambient {
-  position: absolute;
-  right: -4rem;
-  top: -4rem;
-  width: 16rem;
-  height: 16rem;
-  border-radius: 9999px;
-  background: rgba(0, 6, 102, 0.05);
-  filter: blur(60px);
-  pointer-events: none;
-  transition: background 0.4s ease;
-}
-.glass-card:hover .card-ambient { background: rgba(0, 6, 102, 0.10); }
-
 .glass-card-accent {
   border-left: 4px solid var(--lumina-alert);
 }
@@ -537,17 +515,16 @@ svg.lumina-ic {
 
 /* Panel (no padding variant, used for grids) */
 .glass-panel {
-  background: var(--glass-bg);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--lumina-radius-lg);
-  box-shadow: var(--lumina-shadow-card);
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--lumina-radius-md);
+  box-shadow: 0 8px 32px rgba(0, 6, 102, 0.05);
   transition: all 0.2s ease;
 }
 .glass-panel:hover {
-  border-color: rgba(255, 255, 255, 0.7);
-  background: var(--glass-bg-hover);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* ═══ KPI cards ═══ */
@@ -555,7 +532,7 @@ svg.lumina-ic {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 132px;
+  min-height: 128px;
   padding: var(--lumina-stack-md);
   position: relative;
   overflow: hidden;
@@ -688,10 +665,10 @@ svg.lumina-ic {
 
 /* ═══ Buttons ═══ */
 .stButton > button {
-  background: linear-gradient(135deg, var(--lumina-primary), var(--lumina-primary-container)) !important;
+  background: var(--lumina-primary) !important;
   color: #ffffff !important;
   border: none !important;
-  border-radius: var(--lumina-radius-xl) !important;
+  border-radius: var(--lumina-radius-md) !important;
   padding: 0.7rem 2rem !important;
   font-family: var(--lumina-font-display) !important;
   font-size: var(--lumina-label-md) !important;
@@ -702,7 +679,7 @@ svg.lumina-ic {
   min-height: 44px;
 }
 .stButton > button:hover {
-  background: linear-gradient(135deg, var(--lumina-primary-container), var(--lumina-surface-tint)) !important;
+  background: var(--lumina-primary-container) !important;
   box-shadow: 0 8px 24px rgba(0, 6, 102, 0.28) !important;
   transform: translateY(-1px) !important;
 }
@@ -712,7 +689,7 @@ svg.lumina-ic {
   background: transparent !important;
   color: var(--lumina-on-surface) !important;
   border: 1px solid var(--lumina-outline-variant) !important;
-  border-radius: var(--lumina-radius-lg) !important;
+  border-radius: var(--lumina-radius-md) !important;
   font-family: var(--lumina-font-display) !important;
   font-size: var(--lumina-label-md) !important;
   font-weight: 500 !important;
@@ -854,9 +831,9 @@ div[data-baseweb="select"] [data-baseweb="popover"] [data-baseweb="menu"] li[ari
 .stDownloadButton > button,
 .button {
   color-scheme: light !important;
-  background: linear-gradient(135deg, var(--lumina-primary), var(--lumina-primary-container)) !important;
+  background: var(--lumina-primary) !important;
   border: 1px solid rgba(0, 6, 102, 0.25) !important;
-  border-radius: var(--lumina-radius-lg) !important;
+  border-radius: var(--lumina-radius-md) !important;
   color: #ffffff !important;
   font-family: var(--lumina-font-display) !important;
   font-size: var(--lumina-body-md) !important;
@@ -869,7 +846,7 @@ div[data-baseweb="select"] [data-baseweb="popover"] [data-baseweb="menu"] li[ari
 .stButton > button:hover,
 .stDownloadButton > button:hover,
 .button:hover {
-  background: linear-gradient(135deg, var(--lumina-primary-container), var(--lumina-primary)) !important;
+  background: var(--lumina-primary-container) !important;
   box-shadow: var(--lumina-shadow-lg) !important;
 }
 [data-testid="stFormSubmitButton"] > button:active,
@@ -984,7 +961,7 @@ div[data-baseweb="select"] [data-baseweb="popover"] [data-baseweb="menu"] li[ari
 /* ═══ Dataframe — Roboto Flex body ═══ */
 [data-testid="stDataFrame"] {
   border: 1px solid var(--lumina-outline-variant) !important;
-  border-radius: var(--lumina-radius-lg) !important;
+  border-radius: var(--lumina-radius-md) !important;
   overflow: hidden !important;
   box-shadow: var(--lumina-shadow-card) !important;
 }
@@ -1000,7 +977,7 @@ div[data-baseweb="select"] [data-baseweb="popover"] [data-baseweb="menu"] li[ari
 [data-testid="stExpander"] {
   background: rgba(255, 255, 255, 0.55) !important;
   border: 1px solid var(--lumina-outline-variant) !important;
-  border-radius: var(--lumina-radius-lg) !important;
+  border-radius: var(--lumina-radius-md) !important;
   backdrop-filter: blur(16px) !important;
 }
 [data-testid="stExpander"] summary {
@@ -1012,7 +989,7 @@ div[data-baseweb="select"] [data-baseweb="popover"] [data-baseweb="menu"] li[ari
 
 /* ═══ Callouts ═══ */
 div[data-testid="stAlertContainer"] > div, div.stAlert {
-  border-radius: var(--lumina-radius-lg) !important;
+  border-radius: var(--lumina-radius-md) !important;
   font-family: var(--lumina-font-body) !important;
   font-size: var(--lumina-body-md) !important;
   border: 1px solid rgba(198, 197, 212, 0.4) !important;
