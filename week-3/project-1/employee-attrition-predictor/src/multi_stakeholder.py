@@ -14,19 +14,18 @@ from src.preprocessor import DataPreprocessor
 
 
 CHART_COLORS = {
-    'primary': '#6f7bf0',
-    'secondary': '#b3bafa',
-    'positive': '#2dd4a7',
-    'negative': '#f0654f',
-    'neutral': '#4b5468',
-    'accent': '#e0a73e',
+    'primary': '#4c56af',
+    'secondary': '#8690ee',
+    'positive': '#007165',
+    'negative': '#e17c5a',
+    'neutral': '#767683',
+    'accent': '#b57614',
 }
 
 
 def _score_employees(df, model, preprocessor):
     scored = df.copy()
-    feature_cols = list(preprocessor.feature_columns)
-    df_model = scored.reindex(columns=feature_cols, fill_value=0)
+    df_model = preprocessor.transform(scored)
     scored['AttritionProbability'] = model.predict_proba(df_model)[:, 1]
     scored['RiskTier'] = pd.cut(
         scored['AttritionProbability'],
@@ -90,10 +89,10 @@ def _render_hr_view(scored):
     fig = px.bar(dept, x='Department', y='HighPct', color='AvgRisk', text='HighPct',
                  color_continuous_scale=[[0, CHART_COLORS['positive']], [1, CHART_COLORS['negative']]],
                  labels={'HighPct': '% High Risk'})
-    fig.update_layout(template='plotly_dark', paper_bgcolor='#0d121c', plot_bgcolor='#0d121c',
-                      font=dict(color='#8993a8'), height=340, margin=dict(l=40, r=40, t=20, b=40))
+    fig.update_layout(template='plotly_white', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+                      font=dict(color='#454652'), height=340, margin=dict(l=40, r=40, t=20, b=40))
     fig.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # ── Risk by job role ──────────────────────────────────────────────────
     st.markdown('<div class="eyebrow" style="margin-top:2rem;">Risk by Job Role</div>', unsafe_allow_html=True)
@@ -112,7 +111,7 @@ def _render_hr_view(scored):
     ax_r.set_title('Average Attrition Risk by Job Role', fontsize=13, fontweight='600', pad=14)
     for i, (_, r) in enumerate(role.iterrows()):
         ax_r.text(r['AvgRisk'] * 100 + 0.3, i, f"{r['AvgRisk']*100:.1f}%", va='center',
-                  fontweight='600', color='#e4e9f2', fontsize=9, fontfamily='monospace')
+                  fontweight='600', color='#1b1b21', fontsize=9, fontfamily='monospace')
     plt.tight_layout()
     st.pyplot(fig_r)
     plt.close()
@@ -122,7 +121,7 @@ def _render_hr_view(scored):
     top = scored.nlargest(20, 'AttritionProbability')
     show = ['Age', 'Department', 'JobRole', 'MonthlyIncome', 'YearsAtCompany', 'OverTime', 'AttritionProbability', 'RiskTier']
     existing = [c for c in show if c in top.columns]
-    st.dataframe(top[existing], use_container_width=True, height=420,
+    st.dataframe(top[existing], width="stretch", height=420,
                  column_config={'AttritionProbability': st.column_config.ProgressColumn('Risk', format='%.1f%%', min_value=0, max_value=1)})
 
     # ── Key Insights ──────────────────────────────────────────────────────
@@ -201,7 +200,7 @@ def _render_dept_head_view(scored):
     ax.set_title(f'Attrition Risk by Role — {selected_dept}', fontsize=13, fontweight='600', pad=14)
     for i, (_, r) in enumerate(role.iterrows()):
         ax.text(r['AvgRisk'] * 100 + 0.3, i, f"{r['AvgRisk']*100:.1f}%", va='center',
-                fontweight='600', color='#e4e9f2', fontsize=9, fontfamily='monospace')
+                fontweight='600', color='#1b1b21', fontsize=9, fontfamily='monospace')
     plt.tight_layout()
     st.pyplot(fig)
     plt.close()
@@ -211,7 +210,7 @@ def _render_dept_head_view(scored):
     top = dept_df.nlargest(min(15, total), 'AttritionProbability')
     show = ['Age', 'JobRole', 'MonthlyIncome', 'YearsAtCompany', 'OverTime', 'JobSatisfaction', 'WorkLifeBalance', 'AttritionProbability']
     existing = [c for c in show if c in top.columns]
-    st.dataframe(top[existing], use_container_width=True, height=400,
+    st.dataframe(top[existing], width="stretch", height=400,
                  column_config={'AttritionProbability': st.column_config.ProgressColumn('Risk', format='%.1f%%', min_value=0, max_value=1)})
 
     # ── Department Action Plan ─────────────────────────────────────────────
@@ -316,12 +315,12 @@ def _render_ic_view(scored):
                                   line=dict(color=CHART_COLORS['accent'], dash='dot'),
                                   fillcolor='rgba(224,167,62,0.08)'))
     fig.update_layout(
-        template='plotly_dark', paper_bgcolor='#0d121c', plot_bgcolor='#0d121c',
-        font=dict(color='#8993a8'), polar=dict(bgcolor='#0d121c', radialaxis=dict(range=[0, 4])),
+        template='plotly_white', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#454652'), polar=dict(bgcolor='rgba(0,0,0,0)', radialaxis=dict(range=[0, 4])),
         height=380, margin=dict(l=60, r=60, t=30, b=30),
         legend=dict(orientation='h', yanchor='bottom', y=1.02),
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     # ── Career Insights ───────────────────────────────────────────────────
     st.markdown('<div class="eyebrow" style="margin-top:2rem;">Personalized Career Insights</div>', unsafe_allow_html=True)

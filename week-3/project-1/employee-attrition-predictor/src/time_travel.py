@@ -13,12 +13,12 @@ from plotly.subplots import make_subplots
 
 
 CHART_COLORS = {
-    'primary': '#6f7bf0',
-    'secondary': '#b3bafa',
-    'positive': '#2dd4a7',
-    'negative': '#f0654f',
-    'neutral': '#4b5468',
-    'accent': '#e0a73e',
+    'primary': '#4c56af',
+    'secondary': '#8690ee',
+    'positive': '#007165',
+    'negative': '#e17c5a',
+    'neutral': '#767683',
+    'accent': '#b57614',
 }
 
 
@@ -101,12 +101,12 @@ def render_time_travel_page(df):
     fig.add_hline(y=actual_rate, line_dash='dot', line_color=CHART_COLORS['accent'],
                   annotation_text=f'Actual: {actual_rate:.1f}%', annotation_font_color=CHART_COLORS['accent'])
     fig.update_layout(
-        template='plotly_dark', paper_bgcolor='#0d121c', plot_bgcolor='#0d121c',
-        font=dict(color='#8993a8'), height=380, margin=dict(l=40, r=40, t=20, b=80),
+        template='plotly_white', paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#454652'), height=380, margin=dict(l=40, r=40, t=20, b=80),
         xaxis_tickangle=-30,
     )
     fig.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     st.info(f"""
     **Key finding:** With the combined intervention package, attrition could have dropped from
@@ -187,7 +187,7 @@ def render_time_travel_page(df):
     display_df['ROI %'] = display_df['ROI %'].apply(lambda x: f'{x:.0f}%')
     display_df['People Saved'] = display_df['People Saved'].apply(lambda x: f'{x:.0f}')
 
-    st.dataframe(display_df, use_container_width=True, hide_index=True)
+    st.dataframe(display_df, width="stretch", hide_index=True)
 
     # ROI bar chart
     fig_roi, ax_roi = plt.subplots(figsize=(10, 4.5))
@@ -198,7 +198,7 @@ def render_time_travel_page(df):
     ax_roi.set_xlabel('ROI %', labelpad=8)
     ax_roi.set_title('Return on Investment by Intervention Scenario', fontsize=13, fontweight='600', pad=14)
     for i, v in enumerate(roi_vals):
-        ax_roi.text(v + 2, i, f'{v:.0f}%', va='center', fontweight='600', color='#e4e9f2', fontsize=9, fontfamily='monospace')
+        ax_roi.text(v + 2, i, f'{v:.0f}%', va='center', fontweight='600', color='#1b1b21', fontsize=9, fontfamily='monospace')
     plt.tight_layout()
     st.pyplot(fig_roi)
     plt.close()

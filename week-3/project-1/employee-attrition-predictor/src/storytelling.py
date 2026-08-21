@@ -17,12 +17,12 @@ from src.preprocessor import DataPreprocessor
 
 
 CHART_COLORS = {
-    'primary': '#6f7bf0',
-    'secondary': '#b3bafa',
-    'positive': '#2dd4a7',
-    'negative': '#f0654f',
-    'neutral': '#4b5468',
-    'accent': '#e0a73e',
+    'primary': '#4c56af',
+    'secondary': '#8690ee',
+    'positive': '#007165',
+    'negative': '#e17c5a',
+    'neutral': '#767683',
+    'accent': '#b57614',
 }
 
 
@@ -30,8 +30,7 @@ def _generate_employee_narratives(df, model, preprocessor):
     """Score every employee and attach narrative context."""
     scored = df.copy()
 
-    feature_cols = list(preprocessor.feature_columns)
-    df_model = scored.reindex(columns=feature_cols, fill_value=0)
+    df_model = preprocessor.transform(scored)
     probas = model.predict_proba(df_model)[:, 1]
     scored['AttritionProbability'] = probas
     scored['RiskTier'] = pd.cut(
@@ -215,17 +214,17 @@ def render_storytelling_page(df, model, preprocessor):
         secondary_y=True,
     )
     fig.update_layout(
-        template='plotly_dark',
-        paper_bgcolor='#0d121c',
-        plot_bgcolor='#0d121c',
-        font=dict(color='#8993a8'),
+        template='plotly_white',
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#454652'),
         legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1),
         height=370,
         margin=dict(l=40, r=40, t=30, b=40),
     )
-    fig.update_yaxes(title_text='Headcount', secondary_y=False, gridcolor='#1b2333')
-    fig.update_yaxes(title_text='Avg Risk %', secondary_y=True, gridcolor='#1b2333', ticksuffix='%')
-    st.plotly_chart(fig, use_container_width=True)
+    fig.update_yaxes(title_text='Headcount', secondary_y=False, gridcolor='rgba(198,197,212,0.35)')
+    fig.update_yaxes(title_text='Avg Risk %', secondary_y=True, gridcolor='rgba(198,197,212,0.35)', ticksuffix='%')
+    st.plotly_chart(fig, width="stretch")
 
     st.info(
         '**The narrative:** Risk peaks sharply in the 0–2 year bucket — '
@@ -250,7 +249,7 @@ def render_storytelling_page(df, model, preprocessor):
     ax_d.invert_yaxis()
     for bar, val in zip(bars, drivers['PctHighRisk']):
         ax_d.text(val + 0.8, bar.get_y() + bar.get_height() / 2, f'{val:.0f}%',
-                  va='center', fontweight='600', color='#e4e9f2', fontsize=9, fontfamily='monospace')
+                  va='center', fontweight='600', color='#1b1b21', fontsize=9, fontfamily='monospace')
     plt.tight_layout()
     st.pyplot(fig_d)
     plt.close()
@@ -272,16 +271,16 @@ def render_storytelling_page(df, model, preprocessor):
         labels={'HighRiskPct': '% High Risk', 'AvgRisk': 'Avg Risk Score'},
     )
     fig_dept.update_layout(
-        template='plotly_dark',
-        paper_bgcolor='#0d121c',
-        plot_bgcolor='#0d121c',
-        font=dict(color='#8993a8'),
+        template='plotly_white',
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#454652'),
         height=340,
         margin=dict(l=40, r=40, t=20, b=40),
         coloraxis_colorbar=dict(title='Avg Risk', ticksuffix='%'),
     )
     fig_dept.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
-    st.plotly_chart(fig_dept, use_container_width=True)
+    st.plotly_chart(fig_dept, width="stretch")
 
     # ══════════════════════════════════════════════════════════════════════
     #  SECTION 5 — Individual Employee Stories
@@ -304,7 +303,7 @@ def render_storytelling_page(df, model, preprocessor):
     else:
         st.dataframe(
             filtered[existing].head(30),
-            use_container_width=True,
+            width="stretch",
             height=380,
             column_config={
                 'AttritionProbability': st.column_config.ProgressColumn(

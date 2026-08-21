@@ -14,12 +14,12 @@ from src.preprocessor import DataPreprocessor
 
 
 CHART_COLORS = {
-    'primary': '#6f7bf0',
-    'secondary': '#b3bafa',
-    'positive': '#2dd4a7',
-    'negative': '#f0654f',
-    'neutral': '#4b5468',
-    'accent': '#e0a73e',
+    'primary': '#4c56af',
+    'secondary': '#8690ee',
+    'positive': '#007165',
+    'negative': '#e17c5a',
+    'neutral': '#767683',
+    'accent': '#b57614',
 }
 
 
@@ -183,25 +183,25 @@ def render_what_if_page(df, model, preprocessor):
     fig_gauge = go.Figure(go.Indicator(
         mode="gauge+number",
         value=modified_risk * 100,
-        number=dict(suffix="%", font=dict(size=28, color='#e4e9f2')),
+        number=dict(suffix="%", font=dict(size=28, color='#1b1b21')),
         gauge=dict(
             axis=dict(range=[0, 100], ticksuffix='%'),
-            bar=dict(color='#6f7bf0'),
-            bgcolor='#0d121c',
-            bordercolor='#1b2333',
+            bar=dict(color='#4c56af'),
+            bgcolor='rgba(0,0,0,0)',
+            bordercolor='#c6c5d4',
             steps=[
                 dict(range=[0, 30], color='rgba(45,212,167,0.12)'),
                 dict(range=[30, 60], color='rgba(224,167,62,0.12)'),
                 dict(range=[60, 100], color='rgba(240,101,79,0.12)'),
             ],
-            threshold=dict(line=dict(color='#e4e9f2', width=2), thickness=0.8, value=modified_risk * 100),
+            threshold=dict(line=dict(color='#1b1b21', width=2), thickness=0.8, value=modified_risk * 100),
         ),
     ))
     fig_gauge.update_layout(
-        template='plotly_dark', paper_bgcolor='#0d121c', font=dict(color='#8993a8'),
+        template='plotly_white', paper_bgcolor='rgba(0,0,0,0)', font=dict(color='#454652'),
         height=280, margin=dict(l=30, r=30, t=20, b=10),
     )
-    st.plotly_chart(fig_gauge, use_container_width=True)
+    st.plotly_chart(fig_gauge, width="stretch")
 
     # ══════════════════════════════════════════════════════════════════════
     #  Sensitivity Curves

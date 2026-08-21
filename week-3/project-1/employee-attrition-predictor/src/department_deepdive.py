@@ -18,12 +18,12 @@ from pathlib import Path
 
 
 CHART_COLORS = {
-    'primary': '#6f7bf0',
-    'secondary': '#b3bafa',
-    'positive': '#2dd4a7',
-    'negative': '#f0654f',
-    'neutral': '#4b5468',
-    'accent': '#e0a73e',
+    'primary': '#4c56af',
+    'secondary': '#8690ee',
+    'positive': '#007165',
+    'negative': '#e17c5a',
+    'neutral': '#767683',
+    'accent': '#b57614',
 }
 
 TARGET_DEPT = 'Research & Development'
@@ -32,8 +32,7 @@ TARGET_DEPT = 'Research & Development'
 def _score_dept(df, model, preprocessor):
     """Score all R&D employees."""
     dept_df = df[df['Department'] == TARGET_DEPT].copy()
-    feature_cols = list(preprocessor.feature_columns)
-    df_model = dept_df.reindex(columns=feature_cols, fill_value=0)
+    df_model = preprocessor.transform(dept_df)
     dept_df['AttritionProbability'] = model.predict_proba(df_model)[:, 1]
     dept_df['RiskTier'] = pd.cut(
         dept_df['AttritionProbability'],
@@ -206,14 +205,14 @@ def render_department_deepdive_page(df, model, preprocessor):
     axes[0].set_title('Average Attrition Risk by Role', fontsize=13, fontweight='600', pad=14)
     for i, (_, r) in enumerate(rb.iterrows()):
         axes[0].text(r['AvgRisk'] * 100 + 0.3, i, f"{r['AvgRisk']*100:.1f}%", va='center',
-                     fontweight='600', color='#e4e9f2', fontsize=9, fontfamily='monospace')
+                     fontweight='600', color='#1b1b21', fontsize=9, fontfamily='monospace')
 
     # Right: headcount vs high-risk %
     axes[1].bar(rb['JobRole'], rb['Count'], color=CHART_COLORS['primary'], alpha=0.3, zorder=3, label='Headcount')
     ax2 = axes[1].twinx()
     ax2.plot(rb['JobRole'], rb['HighPct'], color=CHART_COLORS['negative'], marker='o', linewidth=2, label='% High Risk')
-    axes[1].set_ylabel('Headcount', labelpad=8, color='#8993a8')
-    ax2.set_ylabel('% High Risk', labelpad=8, color='#8993a8')
+    axes[1].set_ylabel('Headcount', labelpad=8, color='#767683')
+    ax2.set_ylabel('% High Risk', labelpad=8, color='#767683')
     axes[1].set_title('Team Size vs Risk Concentration', fontsize=13, fontweight='600', pad=14)
     axes[1].tick_params(axis='x', rotation=25)
     axes[1].legend(loc='upper left', fontsize=8)
@@ -237,8 +236,8 @@ def render_department_deepdive_page(df, model, preprocessor):
         ax2 = ax_t.twinx()
         ax2.plot(tb['TenureBucket'].astype(str), tb['AvgRisk'] * 100, color=CHART_COLORS['negative'],
                  marker='o', linewidth=2.5, zorder=5)
-        ax_t.set_ylabel('Headcount', labelpad=8, color='#8993a8')
-        ax2.set_ylabel('Avg Risk %', labelpad=8, color='#8993a8')
+        ax_t.set_ylabel('Headcount', labelpad=8, color='#767683')
+        ax2.set_ylabel('Avg Risk %', labelpad=8, color='#767683')
         ax_t.set_title('Risk by Tenure', fontsize=13, fontweight='600', pad=14)
         plt.tight_layout()
         st.pyplot(fig_t)
@@ -251,8 +250,8 @@ def render_department_deepdive_page(df, model, preprocessor):
         ax2 = ax_a.twinx()
         ax2.plot(ab['AgeBucket'].astype(str), ab['AvgRisk'] * 100, color=CHART_COLORS['negative'],
                  marker='s', linewidth=2.5, zorder=5)
-        ax_a.set_ylabel('Headcount', labelpad=8, color='#8993a8')
-        ax2.set_ylabel('Avg Risk %', labelpad=8, color='#8993a8')
+        ax_a.set_ylabel('Headcount', labelpad=8, color='#767683')
+        ax2.set_ylabel('Avg Risk %', labelpad=8, color='#767683')
         ax_a.set_title('Risk by Age Group', fontsize=13, fontweight='600', pad=14)
         plt.tight_layout()
         st.pyplot(fig_a)
@@ -291,7 +290,7 @@ def render_department_deepdive_page(df, model, preprocessor):
     ax_d.invert_yaxis()
     for bar, val in zip(ax_d.patches, drivers['PctHighRisk']):
         ax_d.text(val + 0.8, bar.get_y() + bar.get_height() / 2, f'{val:.0f}%',
-                  va='center', fontweight='600', color='#e4e9f2', fontsize=9, fontfamily='monospace')
+                  va='center', fontweight='600', color='#1b1b21', fontsize=9, fontfamily='monospace')
     plt.tight_layout()
     st.pyplot(fig_d)
     plt.close()
@@ -305,7 +304,7 @@ def render_department_deepdive_page(df, model, preprocessor):
                  'JobSatisfaction', 'WorkLifeBalance', 'YearsSinceLastPromotion', 'AttritionProbability']
     existing = [c for c in show_cols if c in top15.columns]
     st.dataframe(
-        top15[existing], use_container_width=True, height=450,
+        top15[existing], width="stretch", height=450,
         column_config={'AttritionProbability': st.column_config.ProgressColumn('Risk', format='%.1f%%', min_value=0, max_value=1)},
     )
 
@@ -314,8 +313,7 @@ def render_department_deepdive_page(df, model, preprocessor):
     # ══════════════════════════════════════════════════════════════════════
     st.markdown('<div class="eyebrow" style="margin-top:2rem;">How R&D Compares to Other Departments</div>', unsafe_allow_html=True)
     all_scored = df.copy()
-    feature_cols = list(preprocessor.feature_columns)
-    df_model = all_scored.reindex(columns=feature_cols, fill_value=0)
+    df_model = preprocessor.transform(all_scored)
     all_scored['AttritionProbability'] = model.predict_proba(df_model)[:, 1]
 
     dept_comp = (
@@ -332,7 +330,7 @@ def render_department_deepdive_page(df, model, preprocessor):
     ax_c.set_title('Average Risk by Department (R&D Highlighted)', fontsize=13, fontweight='600', pad=14)
     for i, (_, r) in enumerate(dept_comp.iterrows()):
         ax_c.text(i, r['AvgRisk'] * 100 + 0.3, f"{r['AvgRisk']*100:.1f}%", ha='center',
-                  fontweight='600', color='#e4e9f2', fontsize=9, fontfamily='monospace')
+                  fontweight='600', color='#1b1b21', fontsize=9, fontfamily='monospace')
     plt.tight_layout()
     st.pyplot(fig_c)
     plt.close()
