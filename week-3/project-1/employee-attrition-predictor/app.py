@@ -156,20 +156,21 @@ def build_sidebar():
 
 
 def render_topbar(title: str, subtitle: str = ""):
-    sub_html = (
-        f'<span style="opacity:0.5;margin-left:10px;font-size:0.85em;">{subtitle}</span>'
-        if subtitle else ""
+    page_html = (
+        f'<span style="font-weight:600;">{title}</span>'
+        f'<span style="opacity:0.45;margin:0 6px;">·</span>'
+        f'<span style="opacity:0.55;">{subtitle}</span>'
+        if subtitle
+        else f'<span style="font-weight:600;">{title}</span>'
     )
     st.markdown(
         f'<div class="lumina-topbar">'
         f'<div class="tb-title">{icon("auto_awesome", size=22)}&nbsp;Lumina Insights</div>'
-        f'<div style="font-family:var(--lumina-font-display);font-size:var(--lumina-label-md);'
-        f'font-weight:500;color:var(--lumina-on-surface-variant);letter-spacing:0.03em;">'
-        f'{title}{sub_html}</div>'
+        f'<div class="tb-page">{page_html}</div>'
         f'<div class="tb-icons">'
         f'<div class="tb-icon-btn">{icon("notifications")}<span class="dot"></span></div>'
-        f'<div class="tb-icon-btn tb-search-hide">{icon("help")}</div>'
-        f'<div class="tb-icon-btn tb-search-hide">{icon("settings")}</div>'
+        f'<div class="tb-icon-btn">{icon("help")}</div>'
+        f'<div class="tb-icon-btn">{icon("settings")}</div>'
         f"</div></div>",
         unsafe_allow_html=True,
     )

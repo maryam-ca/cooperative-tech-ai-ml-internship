@@ -351,6 +351,14 @@ html, body {
   color: var(--lumina-primary);
   white-space: nowrap;
 }
+.lumina-topbar .tb-page {
+  font-family: var(--lumina-font-display);
+  font-size: var(--lumina-label-md);
+  font-weight: 500;
+  color: var(--lumina-on-surface-variant);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
 .lumina-topbar .tb-search {
   display: flex;
   align-items: center;
@@ -1400,9 +1408,8 @@ svg text { fill: var(--lumina-on-surface); }
 @media (max-width: 768px) {
   .main .block-container { padding: 1rem 0.75rem 3rem !important; }
   .lumina-topbar { padding: 10px 12px !important; gap: 8px !important; }
-  .lumina-topbar .tb-search { width: 100% !important; order: 3; }
   .lumina-topbar .tb-title { font-size: 1.15rem !important; }
-  .lumina-topbar .tb-icons .tb-search-hide { display: none !important; }
+  .lumina-topbar .tb-page { font-size: 11px !important; }
   [data-testid="stSidebar"] { width: 260px !important; min-width: 260px !important; max-width: 260px !important; }
   .lumina-kpi .kpi-value { font-size: 30px !important; }
   .lumina-h1 { font-size: 24px !important; }
