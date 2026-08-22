@@ -1,2 +1,0 @@
-2026-08-22 18:50:53.538 "browser.toolbarMode" is not a valid config option. If you previously had this config option set, it may have been removed.
-2026-08-22 18:50:55.761 Port 8501 is not available

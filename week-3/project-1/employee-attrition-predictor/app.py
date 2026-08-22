@@ -231,21 +231,8 @@ def show_dashboard():
         unsafe_allow_html=True,
     )
 
-    st.markdown(eyebrow("Risk snapshot"), unsafe_allow_html=True)
-    c1, c2 = st.columns([1, 1.6])
+    c1, c2 = st.columns(2)
     with c1:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.plotly_chart(
-            charts.donut(
-                ["High", "Medium", "Low"],
-                [high, medium, total - high - medium],
-                title="Predicted risk distribution",
-            ),
-            width="stretch",
-        )
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    with c2:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
         d = pd.DataFrame(
             {
@@ -255,7 +242,19 @@ def show_dashboard():
             }
         ).sort_values("Attrition %", ascending=False)
         st.plotly_chart(
-            charts.hbar(d, "Attrition %", "Department", title="Attrition rate by department", height=260, marker_color=COLORS["risk_high"]),
+            charts.hbar(d, "Attrition %", "Department", title="Attrition rate by department", height=280, marker_color=COLORS["risk_high"]),
+            width="stretch",
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with c2:
+        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+        st.plotly_chart(
+            charts.donut(
+                ["High", "Medium", "Low"],
+                [high, medium, total - high - medium],
+                title="Predicted risk distribution",
+            ),
             width="stretch",
         )
         st.markdown("</div>", unsafe_allow_html=True)
@@ -942,23 +941,29 @@ def main():
         "EDA Visualizations": "Distributions & relationships",
     }
     render_topbar(active, subtitle_map.get(active, "Advanced analytics"))
-    st.markdown(page_header(active, subtitle_map.get(active, "")), unsafe_allow_html=True)
 
     if active == "Dashboard":
         show_dashboard()
     elif active == "Prediction Tool":
+        st.markdown(page_header("Attrition Prediction Engine", subtitle_map.get(active, "")), unsafe_allow_html=True)
         show_prediction_tool()
     elif active == "Analytics":
+        st.markdown(page_header("Deep Dive Analytics", subtitle_map.get(active, "")), unsafe_allow_html=True)
         show_analytics()
     elif active == "Reports":
+        st.markdown(page_header("Model Performance", subtitle_map.get(active, "")), unsafe_allow_html=True)
         show_reports()
     elif active == "Settings":
+        st.markdown(page_header("System Settings", subtitle_map.get(active, "")), unsafe_allow_html=True)
         show_settings()
     elif active == "Data Explorer":
+        st.markdown(page_header(active, subtitle_map.get(active, "")), unsafe_allow_html=True)
         show_data_explorer()
     elif active == "EDA Visualizations":
+        st.markdown(page_header("EDA Visualizations", subtitle_map.get(active, "")), unsafe_allow_html=True)
         show_eda_visualizations()
     else:
+        st.markdown(page_header(active, subtitle_map.get(active, "")), unsafe_allow_html=True)
         _advanced_with_pipeline(active)
 
 
