@@ -498,8 +498,8 @@ def show_analytics():
             yaxis_title="Employees",
             xaxis_title="P(attrition)",
         )
-        fig.update_xaxes(tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e"))
-        fig.update_yaxes(tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e"))
+        fig.update_xaxes(tickfont=dict(size=12, color="#1a1a2e"), title_font=dict(size=13, color="#1a1a2e"))
+        fig.update_yaxes(tickfont=dict(size=12, color="#1a1a2e"), title_font=dict(size=13, color="#1a1a2e"))
         st.plotly_chart(fig, width="stretch")
         st.markdown("</div>", unsafe_allow_html=True)
 

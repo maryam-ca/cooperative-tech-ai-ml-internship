@@ -104,8 +104,8 @@ def roc_curve(fpr, tpr, auc, title=""):
         height=380,
         legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     )
-    fig.update_xaxes(title="False positive rate", range=[0, 1], tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e"))
-    fig.update_yaxes(title="True positive rate", range=[0, 1], tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e"))
+    fig.update_xaxes(title="False positive rate", range=[0, 1], tickfont=dict(size=12, color="#1a1a2e"), title_font=dict(size=13, color="#1a1a2e"))
+    fig.update_yaxes(title="True positive rate", range=[0, 1], tickfont=dict(size=12, color="#1a1a2e"), title_font=dict(size=13, color="#1a1a2e"))
     return fig
 
 
