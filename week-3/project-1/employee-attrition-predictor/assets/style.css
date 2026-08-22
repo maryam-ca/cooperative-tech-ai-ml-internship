@@ -98,22 +98,38 @@ html, body {
   background-color: var(--lumina-background);
 }
 
-/* Kill Streamlit's default white header/toolbar gap at the very top */
+/* Kill ALL Streamlit top padding / header / toolbar — topbar must sit flush */
+header[data-testid="stHeader"],
 [data-testid="stHeader"] {
   background: transparent !important;
   height: 0 !important;
   min-height: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
 }
 [data-testid="stToolbar"] {
   display: none !important;
 }
-
-.main .block-container {
+[data-testid="stDecoration"] {
+  display: none !important;
+}
+section.main > div.block-container,
+.main .block-container,
+[data-testid="stMain"] .block-container {
   padding-top: 0 !important;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 4rem;
   max-width: 1280px;
+}
+
+/* Tighten vertical gaps between blocks — removes empty whitespace */
+[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"] {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > div > div[data-testid="stMarkdown"]) {
+  margin-bottom: 0.5rem !important;
 }
 
 /* ═══ Sidebar (fixed 280px, Analytical Navy — flat) ═══ */
@@ -910,8 +926,16 @@ div[data-baseweb="select"] [data-baseweb="popover"] [data-baseweb="menu"] li[ari
   height: 6px !important;
 }
 [data-testid="stSlider"] > div > div > div > div > div[data-testid="stSliderThumbValue"] {
-  transform: translate(-50%, -220%) !important;
-  color: var(--lumina-on-surface) !important;
+  transform: translate(-50%, -250%) !important;
+  color: #000666 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  font-family: var(--lumina-font-display) !important;
+  background: rgba(255,255,255,0.92) !important;
+  padding: 2px 8px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12) !important;
+  line-height: 1.2 !important;
 }
 [data-testid="stSlider"] [data-testid="stTickBar"] {
   color: var(--lumina-outline) !important;

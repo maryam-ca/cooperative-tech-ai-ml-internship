@@ -16,16 +16,22 @@ FONT_STACK = "Inter, 'Roboto Flex', -apple-system, sans-serif"
 BASE_LAYOUT = dict(
     paper_bgcolor="rgba(0,0,0,0)",
     plot_bgcolor="rgba(0,0,0,0)",
-    font=dict(family=FONT_STACK, color=COLORS["on_surface"], size=13),
+    font=dict(family=FONT_STACK, color="#1a1a2e", size=13),
     margin=dict(l=8, r=8, t=36, b=8),
     colorway=BAR_PALETTE,
 )
 
 
 def style_fig(fig: go.Figure, title: str = "", height: int = 360) -> go.Figure:
-    fig.update_layout(**BASE_LAYOUT, title=dict(text=title, font=dict(size=16, color=COLORS["on_surface"], family=FONT_STACK)), height=height)
-    fig.update_xaxes(gridcolor="rgba(198,197,212,0.35)", linecolor="rgba(198,197,212,0.6)", zeroline=False)
-    fig.update_yaxes(gridcolor="rgba(198,197,212,0.35)", linecolor="rgba(198,197,212,0.6)", zeroline=False)
+    fig.update_layout(**BASE_LAYOUT, title=dict(text=title, font=dict(size=16, color="#1a1a2e", family=FONT_STACK)), height=height)
+    fig.update_xaxes(
+        gridcolor="rgba(198,197,212,0.35)", linecolor="rgba(198,197,212,0.6)",
+        zeroline=False, tickfont=dict(size=12, color="#1a1a2e"),
+    )
+    fig.update_yaxes(
+        gridcolor="rgba(198,197,212,0.35)", linecolor="rgba(198,197,212,0.6)",
+        zeroline=False, tickfont=dict(size=12, color="#1a1a2e"),
+    )
     return fig
 
 
@@ -42,7 +48,7 @@ def donut(labels, values, title="", height=320, palette=None, hole=0.62):
             hovertemplate="%{label}<br>%{value:,} · %{percent}<extra></extra>",
         )
     )
-    fig.update_layout(**BASE_LAYOUT, title=dict(text=title, font=dict(size=15, color=COLORS["on_surface"], family=FONT_STACK)), height=height, showlegend=False)
+    fig.update_layout(**BASE_LAYOUT, title=dict(text=title, font=dict(size=15, color="#1a1a2e", family=FONT_STACK)), height=height, showlegend=False)
     fig.update_traces(textfont=dict(family=FONT_STACK, size=13))
     return fig
 
@@ -94,11 +100,11 @@ def roc_curve(fpr, tpr, auc, title=""):
     )
     fig.update_layout(
         **BASE_LAYOUT,
-        title=dict(text=title or "ROC Curve", font=dict(size=15, color=COLORS["on_surface"], family=FONT_STACK)),
+        title=dict(text=title or "ROC Curve", font=dict(size=15, color="#1a1a2e", family=FONT_STACK)),
         height=380,
         legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
-        xaxis=dict(title="False positive rate", range=[0, 1]),
-        yaxis=dict(title="True positive rate", range=[0, 1]),
+        xaxis=dict(title="False positive rate", range=[0, 1], tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e")),
+        yaxis=dict(title="True positive rate", range=[0, 1], tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e")),
     )
     return fig
 
@@ -117,8 +123,9 @@ def feature_importance_bars(features, values, title="Top contributing factors", 
             hovertemplate="%{x}: %{y:.3f}<extra></extra>",
         )
     )
-    fig.update_layout(**BASE_LAYOUT, title=dict(text=title, font=dict(size=15, color=COLORS["on_surface"], family=FONT_STACK)), height=400)
-    fig.update_xaxes(tickangle=-35, tickfont=dict(size=11))
+    fig.update_layout(**BASE_LAYOUT, title=dict(text=title, font=dict(size=15, color="#1a1a2e", family=FONT_STACK)), height=400)
+    fig.update_xaxes(tickangle=-35, tickfont=dict(size=12, color="#1a1a2e"))
+    fig.update_yaxes(tickfont=dict(size=12, color="#1a1a2e"))
     return fig
 
 
