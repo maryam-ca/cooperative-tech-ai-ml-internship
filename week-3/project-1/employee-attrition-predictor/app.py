@@ -497,9 +497,9 @@ def show_analytics():
             title=dict(text="Probability distribution", font=dict(size=15, color="#1a1a2e", family=charts.FONT_STACK)),
             yaxis_title="Employees",
             xaxis_title="P(attrition)",
-            xaxis=dict(tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e")),
-            yaxis=dict(tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e")),
         )
+        fig.update_xaxes(tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e"))
+        fig.update_yaxes(tickfont=dict(size=12, color="#1a1a2e"), titlefont=dict(size=13, color="#1a1a2e"))
         st.plotly_chart(fig, width="stretch")
         st.markdown("</div>", unsafe_allow_html=True)
 
